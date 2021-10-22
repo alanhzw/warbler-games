@@ -1,0 +1,15 @@
+src/lib/
+package.json
+package-lock.json
+yarn.lock
+node_modules/
+.idea/
+bin/
+public/
+vue.config.js
+.history/
+.vscode/
+index.html
+.gitignore
+.eslintignore
+README.md
