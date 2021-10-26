@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:游戏页面
  * @Date: 2021-10-14 14:47:09
- * @LastEditTime: 2021-10-22 17:28:08
+ * @LastEditTime: 2021-10-26 18:52:22
  * @FilePath: \warbler-games\贪吃蛇\src\components\Map.vue
 -->
 <template>
@@ -24,18 +24,14 @@
 
 <script setup lang="ts">
 import Cell from './Cell.vue';
-import { reactive } from 'vue';
 import { gameRow, gameCol } from '@/game/map';
-import { initGame } from '@/game';
-
-// 地图
-const map = reactive([]);
-// 初始化游戏
-initGame(map);
+import { defineProps } from 'vue';
+defineProps(['map']);
 </script>
 
 <style lang='scss'>
 .game-box {
+  border: 1px solid #fff;
   .row {
     display: flex;
   }

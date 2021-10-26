@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:每一个小格子
  * @Date: 2021-10-14 15:38:34
- * @LastEditTime: 2021-10-22 19:33:47
+ * @LastEditTime: 2021-10-26 19:32:16
  * @FilePath: \warbler-games\贪吃蛇\src\components\Cell.vue
 -->
 <template>
@@ -33,15 +33,20 @@ const classes = computed(() => {
     width: 30px;
     height: 30px;
   }
-  border: 1px solid #fff;
+  border-radius: 8px;
+  margin: 2px;
 }
 .head {
-  background: red;
+  background: #fafafa;
+  box-shadow: 0 0 10px #1e88e5, 0 0 20px #1e88e5, 0 0 40px #1e88e5;
 }
 .body {
-  background: green;
+  background: black;
+  box-shadow: 0 0 5px #76ff03, 0 0 5px #76ff03, 0 0 10px #76ff03;
 }
 .food {
-  background: blue;
+  background: #d500f9;
+  box-shadow: 0 0 10px #d500f9, 0 0 20px #d500f9, 0 0 20px #d500f9;
+  border-radius: 50%;
 }
 </style>
