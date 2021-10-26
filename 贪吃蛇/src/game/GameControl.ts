@@ -27,6 +27,7 @@ export class GameControl {
     this._snake = new Snake();
     this._food = new Food();
   }
+  // 开始游戏
   start() {
     // 绑定键盘按键按下的事件
     document.addEventListener('keydown', this.keydownHandler.bind(this));
@@ -53,6 +54,7 @@ export class GameControl {
     }
     render(this._map, this._snake, this._food);
   }
+  // 重新开始游戏
   replay() {
     reset(this._map);
     this._snake = new Snake();
