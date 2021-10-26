@@ -2,8 +2,8 @@
  * @Author: 一尾流莺
  * @Description:游戏页面
  * @Date: 2021-10-14 14:47:09
- * @LastEditTime: 2021-10-21 18:40:21
- * @FilePath: \greedySnake\src\components\Map.vue
+ * @LastEditTime: 2021-10-22 17:28:08
+ * @FilePath: \warbler-games\贪吃蛇\src\components\Map.vue
 -->
 <template>
   <div class="game-box">

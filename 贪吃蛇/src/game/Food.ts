@@ -2,8 +2,8 @@
  * @Author: 一尾流莺
  * @Description:食物类
  * @Date: 2021-10-19 17:14:57
- * @LastEditTime: 2021-10-21 18:23:53
- * @FilePath: \greedySnake\src\game\Food.ts
+ * @LastEditTime: 2021-10-22 19:28:40
+ * @FilePath: \warbler-games\贪吃蛇\src\game\Food.ts
  */
 import { randomIntegerInRange } from '@/utils';
 import { gameCol, gameRow } from './map';
@@ -15,14 +15,14 @@ export class Food {
   y: number;
   status = -1;
   constructor() {
-    this.x = randomIntegerInRange(0, gameRow - 1);
+    this.x = randomIntegerInRange(0, gameCol - 1);
     this.y = randomIntegerInRange(0, gameRow - 1);
   }
   // 修改食物的位置
   change(snake: Snake) {
     // 生成一个随机的位置
-    const newX = randomIntegerInRange(0, gameRow - 1);
-    const newY = randomIntegerInRange(0, gameCol - 1);
+    const newX = randomIntegerInRange(0, gameCol - 1);
+    const newY = randomIntegerInRange(0, gameRow - 1);
     // 1.获取蛇头的坐标
     const x = snake.head.x;
     const y = snake.head.y;

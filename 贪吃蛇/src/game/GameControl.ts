@@ -2,8 +2,8 @@
  * @Author: 一尾流莺
  * @Description:游戏控制类
  * @Date: 2021-10-19 17:14:43
- * @LastEditTime: 2021-10-21 19:06:37
- * @FilePath: \greedySnake\src\game\GameControl.ts
+ * @LastEditTime: 2021-10-22 19:30:26
+ * @FilePath: \warbler-games\贪吃蛇\src\game\GameControl.ts
  */
 
 import { Map } from '@/types';
@@ -22,10 +22,10 @@ export class GameControl {
   // 地图
   private _map: Map;
   constructor(map: Map) {
-    this._snake = new Snake();
-    this._food = new Food();
     this._map = map;
     this._direction = 'Right';
+    this._snake = new Snake();
+    this._food = new Food();
   }
   start() {
     // 绑定键盘按键按下的事件

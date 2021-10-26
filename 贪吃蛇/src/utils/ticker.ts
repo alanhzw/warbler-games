@@ -2,8 +2,8 @@
  * @Author: 一尾流莺
  * @Description:帧循环
  * @Date: 2021-10-14 19:19:53
- * @LastEditTime: 2021-10-21 19:05:25
- * @FilePath: \greedySnake\src\utils\ticker.ts
+ * @LastEditTime: 2021-10-22 18:47:57
+ * @FilePath: \warbler-games\贪吃蛇\src\utils\ticker.ts
  */
 
 let startTime = Date.now();
@@ -16,7 +16,6 @@ const handleFrame = () => {
   });
   startTime = Date.now();
   requestAnimationFrame(handleFrame);
-  console.log('🚀🚀~ tickers:', tickers);
 };
 
 requestAnimationFrame(handleFrame);

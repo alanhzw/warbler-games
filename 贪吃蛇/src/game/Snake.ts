@@ -2,8 +2,8 @@
  * @Author: 一尾流莺
  * @Description:蛇类 -1 食物 1 蛇身体 2 蛇头
  * @Date: 2021-10-19 17:14:52
- * @LastEditTime: 2021-10-21 18:53:46
- * @FilePath: \greedySnake\src\game\Snake.ts
+ * @LastEditTime: 2021-10-22 19:32:14
+ * @FilePath: \warbler-games\贪吃蛇\src\game\Snake.ts
  */
 
 import { SnakeBodies, SnakeHead } from '@/types';
@@ -30,10 +30,10 @@ export class Snake {
   // 定义一个方法，用来检查蛇是否吃到食物
   checkEat(food: Food) {
     if (this.head.x === food.x && this.head.y === food.y) {
-      // 食物的位置要进行重置
-      food.change(this);
       // 分数增加
       // this.scorePanel.addScore();
+      // 食物的位置要进行重置
+      food.change(this);
       // 蛇要增加一节
       this.bodies.unshift({
         x: food.x,
@@ -46,7 +46,7 @@ export class Snake {
   move(direction: string, food: Food) {
     // 判断是否游戏结束
     if (hitFence(this.head, direction) || hitSelf(this.head, this.bodies)) {
-      throw new Error('出界了');
+      throw new Error('游戏结束');
     }
     const headX = this.head.x;
     const headY = this.head.y;

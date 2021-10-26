@@ -2,16 +2,20 @@
  * @Author: 一尾流莺
  * @Description:地图
  * @Date: 2021-10-19 17:10:53
- * @LastEditTime: 2021-10-19 17:50:14
- * @FilePath: \greedySnake\src\game\map.ts
+ * @LastEditTime: 2021-10-22 19:34:09
+ * @FilePath: \warbler-games\贪吃蛇\src\game\map.ts
  */
 
 import type { Map } from '../types/index';
 
+const width = document.documentElement.clientWidth - 20;
+const height = document.documentElement.clientHeight - 40;
+
 // 行数
-export const gameRow = 15;
+export const gameRow = width > 700 ? Math.floor(height / 70) : Math.floor(height / 30);
+
 // 列数
-export const gameCol = 15;
+export const gameCol = width > 700 ? Math.floor(width / 70) : Math.floor(width / 30);
 
 // 初始化地图  现在所有的位置type都是0
 export function initMap(map: Map) {

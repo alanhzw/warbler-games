@@ -2,8 +2,8 @@
  * @Author: 一尾流莺
  * @Description:每一个小格子
  * @Date: 2021-10-14 15:38:34
- * @LastEditTime: 2021-10-21 19:25:35
- * @FilePath: \greedySnake\src\components\Cell.vue
+ * @LastEditTime: 2021-10-22 19:33:47
+ * @FilePath: \warbler-games\贪吃蛇\src\components\Cell.vue
 -->
 <template>
   <div class='cell-box'
@@ -12,7 +12,7 @@
 </template>
 
 <script lang='ts' setup>
-import { computed } from 'vue';
+import { computed, defineProps } from 'vue';
 const props = defineProps(['type']);
 
 // 小格子的颜色
@@ -27,8 +27,12 @@ const classes = computed(() => {
 
 <style lang='scss'>
 .cell-box {
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 70px;
+  height: 70px;
+  @media screen and (max-width: 750px) {
+    width: 30px;
+    height: 30px;
+  }
   border: 1px solid #fff;
 }
 .head {
