@@ -2,22 +2,29 @@
  * @Author: 一尾流莺
  * @Description:根节点
  * @Date: 2021-10-19 16:51:48
- * @LastEditTime: 2021-10-22 18:41:33
+ * @LastEditTime: 2021-10-26 17:12:27
  * @FilePath: \warbler-games\贪吃蛇\src\App.vue
 -->
 <template>
   <div class='app-content'>
     <Map></Map>
-    <button class="btn"
-            @click='start'>开始游戏</button>
+    <div class="btns">
+      <button class="begin-btn"
+              @click='start'>开始游戏</button>
+      <button class="replay-btn"
+              @click='replay'>重新开始</button>
+    </div>
   </div>
 </template>
 
 <script lang='ts' setup>
-import { startGame } from './game';
+import { startGame, replayGame } from './game';
 import Map from '@/components/Map.vue';
 const start = () => {
   startGame();
+};
+const replay = () => {
+  replayGame();
 };
 </script>
 
@@ -42,13 +49,25 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  .btn {
-    width: 100px;
-    background: transparent;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    color: #fff;
-    padding: 10px 5px;
+  .btns {
+    .begin-btn {
+      margin: 0 10px;
+      width: 100px;
+      background: transparent;
+      border: 1px solid #fff;
+      border-radius: 5px;
+      color: #fff;
+      padding: 10px 5px;
+    }
+    .replay-btn {
+      margin: 0 10px;
+      width: 100px;
+      background: transparent;
+      border: 1px solid #fff;
+      border-radius: 5px;
+      color: #fff;
+      padding: 10px 5px;
+    }
   }
 }
 </style>

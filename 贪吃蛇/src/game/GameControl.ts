@@ -2,14 +2,14 @@
  * @Author: 一尾流莺
  * @Description:游戏控制类
  * @Date: 2021-10-19 17:14:43
- * @LastEditTime: 2021-10-22 19:30:26
+ * @LastEditTime: 2021-10-26 17:19:07
  * @FilePath: \warbler-games\贪吃蛇\src\game\GameControl.ts
  */
 
 import { Map } from '@/types';
 import { addTicker, intervalTimer, stopTicker } from '@/utils';
 import { Food } from './Food';
-import { render } from './render';
+import { render, reset } from './render';
 import { Snake } from './Snake';
 
 export class GameControl {
@@ -52,5 +52,12 @@ export class GameControl {
       }
     }
     render(this._map, this._snake, this._food);
+  }
+  replay() {
+    reset(this._map);
+    this._snake = new Snake();
+    this._food = new Food();
+    stopTicker();
+    addTicker(this.handlerTicker.bind(this));
   }
 }

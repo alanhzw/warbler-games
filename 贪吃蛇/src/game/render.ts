@@ -23,7 +23,7 @@ export function render(map: Map, snake: Snake, food: Food) {
 }
 
 // 重置map 将二维数组所有元素重置为0
-function reset(map: Map) {
+export function reset(map: Map) {
   for (let i = 0; i < map.length; i++) {
     for (let j = 0; j < map[0].length; j++) {
       if (map[i][j] !== 0) {
