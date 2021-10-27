@@ -2,11 +2,15 @@
  * @Author: 一尾流莺
  * @Description:根节点
  * @Date: 2021-10-19 16:51:48
- * @LastEditTime: 2021-10-27 11:24:01
+ * @LastEditTime: 2021-10-27 12:03:37
  * @FilePath: \warbler-games\贪吃蛇\src\App.vue
 -->
 <template>
-  <div class='app-content'>
+  <div class='app-content'
+       @swipeup="changeMoveDirection('up')"
+       @swiperight="changeMoveDirection('right')"
+       @swipedown="changeMoveDirection('down')"
+       @swipeleft="changeMoveDirection('left')">>
     <Map :map='state.map'></Map>
     <Controller :is-live='isLive'
                 @start='start'
@@ -15,7 +19,7 @@
 </template>
 
 <script lang='ts' setup>
-import { startGame, replayGame } from './game';
+import { startGame, replayGame, changeMoveDirection } from './game';
 import Map from '@/components/Map.vue';
 import Controller from './components/Controller.vue';
 import { initGame } from '@/game';

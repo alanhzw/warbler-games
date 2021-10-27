@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:游戏控制类
  * @Date: 2021-10-19 17:14:43
- * @LastEditTime: 2021-10-27 11:57:37
+ * @LastEditTime: 2021-10-27 12:04:51
  * @FilePath: \warbler-games\贪吃蛇\src\game\GameControl.ts
  */
 
@@ -71,5 +71,9 @@ export class GameControl {
     this._isLive.value = 2;
     stopTicker();
     addTicker(this.handlerTicker.bind(this));
+  }
+  // 移动端修改移动方向
+  changeMoveDirection(direction: string) {
+    this._direction = direction;
   }
 }
