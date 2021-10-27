@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:游戏控制类
  * @Date: 2021-10-19 17:14:43
- * @LastEditTime: 2021-10-27 16:55:05
+ * @LastEditTime: 2021-10-27 17:23:29
  * @FilePath: \warbler-games\贪吃蛇\src\game\GameControl.ts
  */
 
@@ -75,7 +75,7 @@ export class GameControl {
   // 移动端修改移动方向
   changeMoveDirection(clickX, clickY) {
     // 根据点击的位置和蛇头的相对位置,进行方向的改变
-    if (clickY <= this._snake.head.x && this._direction !== 'Left' && this._direction !== 'Right') {
+    if (clickY < this._snake.head.x && this._direction !== 'Left' && this._direction !== 'Right') {
       this._direction = 'Left';
       return;
     }
@@ -83,7 +83,7 @@ export class GameControl {
       this._direction = 'Right';
       return;
     }
-    if (clickX <= this._snake.head.y && this._direction !== 'Up' && this._direction !== 'Down') {
+    if (clickX < this._snake.head.y && this._direction !== 'Up' && this._direction !== 'Down') {
       this._direction = 'Up';
       return;
     }
