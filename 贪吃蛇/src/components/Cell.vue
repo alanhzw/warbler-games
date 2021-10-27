@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:每一个小格子
  * @Date: 2021-10-14 15:38:34
- * @LastEditTime: 2021-10-27 16:10:50
+ * @LastEditTime: 2021-10-27 16:44:12
  * @FilePath: \warbler-games\贪吃蛇\src\components\Cell.vue
 -->
 <template>

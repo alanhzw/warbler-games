@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:游戏页面
  * @Date: 2021-10-14 14:47:09
- * @LastEditTime: 2021-10-27 10:17:33
+ * @LastEditTime: 2021-10-27 16:49:25
  * @FilePath: \warbler-games\贪吃蛇\src\components\Map.vue
 -->
 <template>
@@ -16,7 +16,8 @@
            v-for='col in gameCol'
            :key='col'>
         <!-- 小格子 -->
-        <Cell :type='map[row-1][col-1]'></Cell>
+        <Cell :type='map[row-1][col-1]'
+              @click='changeMoveDirection(row-1,col-1)'></Cell>
       </div>
     </div>
   </div>
@@ -26,6 +27,8 @@
 import Cell from './Cell.vue';
 import { gameRow, gameCol } from '@/game/map';
 import { defineProps } from 'vue';
+import { changeMoveDirection } from '../game';
+
 defineProps(['map']);
 </script>
 

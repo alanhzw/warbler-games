@@ -28,6 +28,6 @@ export function replayGame() {
 }
 
 // 移动端修改移动方向
-export function changeMoveDirection(direction: string) {
-  gameControl.changeMoveDirection(direction);
+export function changeMoveDirection(x: number, y: number) {
+  gameControl.changeMoveDirection(x, y);
 }

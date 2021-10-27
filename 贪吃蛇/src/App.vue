@@ -2,12 +2,11 @@
  * @Author: 一尾流莺
  * @Description:根节点
  * @Date: 2021-10-19 16:51:48
- * @LastEditTime: 2021-10-27 16:22:30
+ * @LastEditTime: 2021-10-27 16:33:51
  * @FilePath: \warbler-games\贪吃蛇\src\App.vue
 -->
 <template>
-  <div class='app-content'
-       @touchstart="(e)=>touchstart(e,change)">
+  <div class='app-content'>
     <Map :map='state.map'></Map>
     <Controller :is-live='isLive'
                 @start='start'
@@ -16,13 +15,12 @@
 </template>
 
 <script lang='ts' setup>
-import { startGame, replayGame, changeMoveDirection } from './game';
+import { startGame, replayGame } from './game';
 import Map from '@/components/Map.vue';
 import Controller from './components/Controller.vue';
 import { initGame } from '@/game';
 import { reactive, ref } from 'vue';
 import { StateType } from './types';
-import { touchstart } from './utils/touch';
 
 // 地图
 const state = reactive<StateType>({
@@ -39,11 +37,6 @@ const start = () => {
 // 再来一局
 const replay = () => {
   replayGame();
-};
-
-// 移动端修改方向
-const change = (direction: string) => {
-  changeMoveDirection(direction);
 };
 
 // 初始化游戏
