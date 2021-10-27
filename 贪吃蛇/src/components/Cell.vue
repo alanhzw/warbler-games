@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:每一个小格子
  * @Date: 2021-10-14 15:38:34
- * @LastEditTime: 2021-10-27 11:51:20
+ * @LastEditTime: 2021-10-27 16:10:50
  * @FilePath: \warbler-games\贪吃蛇\src\components\Cell.vue
 -->
 <template>
@@ -46,7 +46,21 @@ const classes = computed(() => {
 }
 .food {
   background: #d500f9;
-  box-shadow: 0 0 10px #d500f9, 0 0 20px #d500f9, 0 0 20px #d500f9;
   border-radius: 50%;
+  animation-name: shineFood;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shineFood {
+  0% {
+    box-shadow: 0 0 5px #d500f9, 0 0 5px #d500f9, 0 0 5px #d500f9;
+  }
+  50% {
+    box-shadow: 0 0 10px #d500f9, 0 0 20px #d500f9, 0 0 20px #d500f9;
+  }
+  100% {
+    box-shadow: 0 0 5px #d500f9, 0 0 5px #d500f9, 0 0 5px #d500f9;
+  }
 }
 </style>
