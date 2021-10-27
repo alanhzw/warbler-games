@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:根节点
  * @Date: 2021-10-19 16:51:48
- * @LastEditTime: 2021-10-27 14:46:18
+ * @LastEditTime: 2021-10-27 14:48:36
  * @FilePath: \warbler-games\贪吃蛇\src\App.vue
 -->
 <template>
@@ -10,7 +10,7 @@
        @swipeup="changeMoveDirection('up')"
        @swiperight="changeMoveDirection('right')"
        @swipedown="changeMoveDirection('down')"
-       @swipeleft="changeMoveDirection('left')">>
+       @swipeleft="changeMoveDirection('left')">
     <Map :map='state.map'></Map>
     <Controller :is-live='isLive'
                 @start='start'
@@ -53,11 +53,9 @@ body {
   background: #000;
   padding: 0;
   overflow: hidden;
-  background: url('./assets/background.jpg');
-  background-size: contain;
-  background-repeat: space;
+  background: url('./assets/background.jpg') 100% space;
   @media screen and (max-width: 750px) {
-    background: url('./assets/background-c.jpg');
+    background: url('./assets/background-c.jpg') 100% space;
   }
 }
 body {
