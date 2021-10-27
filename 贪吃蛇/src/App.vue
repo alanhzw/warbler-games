@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:根节点
  * @Date: 2021-10-19 16:51:48
- * @LastEditTime: 2021-10-27 16:33:51
+ * @LastEditTime: 2021-10-27 18:36:43
  * @FilePath: \warbler-games\贪吃蛇\src\App.vue
 -->
 <template>
@@ -11,13 +11,16 @@
     <Controller :is-live='isLive'
                 @start='start'
                 @replay='replay'></Controller>
+    <KeyBoard :is-live='isLive'
+              @changeDirection='change'></KeyBoard>
   </div>
 </template>
 
 <script lang='ts' setup>
-import { startGame, replayGame } from './game';
+import { startGame, replayGame, changeDirection } from './game';
 import Map from '@/components/Map.vue';
 import Controller from './components/Controller.vue';
+import KeyBoard from './components/KeyBoard.vue';
 import { initGame } from '@/game';
 import { reactive, ref } from 'vue';
 import { StateType } from './types';
@@ -37,6 +40,10 @@ const start = () => {
 // 再来一局
 const replay = () => {
   replayGame();
+};
+// 修改方向
+const change = (direction: string) => {
+  changeDirection(direction);
 };
 
 // 初始化游戏
@@ -71,5 +78,6 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 </style>

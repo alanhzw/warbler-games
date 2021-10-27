@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:游戏控制类
  * @Date: 2021-10-19 17:14:43
- * @LastEditTime: 2021-10-27 17:23:29
+ * @LastEditTime: 2021-10-27 18:37:16
  * @FilePath: \warbler-games\贪吃蛇\src\game\GameControl.ts
  */
 
@@ -88,6 +88,24 @@ export class GameControl {
       return;
     }
     if (clickX > this._snake.head.y && this._direction !== 'Up' && this._direction !== 'Down') {
+      this._direction = 'Down';
+      return;
+    }
+  }
+  changeDirection(direction: string) {
+    if (direction === 'Left' && this._direction !== 'Left' && this._direction !== 'Right') {
+      this._direction = 'Left';
+      return;
+    }
+    if (direction === 'Right' && this._direction !== 'Left' && this._direction !== 'Right') {
+      this._direction = 'Right';
+      return;
+    }
+    if (direction === 'Up' && this._direction !== 'Up' && this._direction !== 'Down') {
+      this._direction = 'Up';
+      return;
+    }
+    if (direction === 'Down' && this._direction !== 'Up' && this._direction !== 'Down') {
       this._direction = 'Down';
       return;
     }
