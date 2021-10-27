@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:
  * @Date: 2021-10-27 10:38:07
- * @LastEditTime: 2021-10-27 11:49:31
+ * @LastEditTime: 2021-10-27 17:10:38
  * @FilePath: \warbler-games\贪吃蛇\src\components\Controller.vue
 -->
 <template>
@@ -18,6 +18,11 @@
         <img src="../assets/snake.png"
              class="limit">
         <img src="../assets/start.png">
+        <div class="options-tips">
+          <p>手机玩家请点击屏幕进行操作;</p>
+          <p>电脑玩家请通过按键 ↑ ↓ ← → 进行操作;</p>
+          <p>注: 黑框外点击无效!!!</p>
+        </div>
       </div>
       <!-- 游戏结束,再来一局 -->
       <div v-if="isLive === 3"
@@ -57,15 +62,20 @@ defineProps({
   display: flex;
   align-items: center;
   justify-content: center;
+
   .show-btns {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     .limit {
       width: 300px;
     }
+  }
+
+  .options-tips {
+    color: #f0d095;
+    font-size: 12px;
   }
 }
 //淡入淡出
