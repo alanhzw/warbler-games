@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:根节点
  * @Date: 2021-10-19 16:51:48
- * @LastEditTime: 2021-10-27 12:03:37
+ * @LastEditTime: 2021-10-27 14:42:21
  * @FilePath: \warbler-games\贪吃蛇\src\App.vue
 -->
 <template>
@@ -54,6 +54,9 @@ body {
   padding: 0;
   overflow: hidden;
   background: url('./assets/background.jpg');
+  @media screen and (max-width: 750px) {
+    background: url('./assets/background-c.jpg');
+  }
 }
 body {
 }
