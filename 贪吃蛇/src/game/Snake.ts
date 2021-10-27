@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:蛇类 -1 食物 1 蛇身体 2 蛇头
  * @Date: 2021-10-19 17:14:52
- * @LastEditTime: 2021-10-22 19:32:14
+ * @LastEditTime: 2021-10-27 11:17:53
  * @FilePath: \warbler-games\贪吃蛇\src\game\Snake.ts
  */
 

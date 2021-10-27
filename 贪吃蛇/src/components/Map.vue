@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:游戏页面
  * @Date: 2021-10-14 14:47:09
- * @LastEditTime: 2021-10-26 18:52:22
+ * @LastEditTime: 2021-10-27 10:17:33
  * @FilePath: \warbler-games\贪吃蛇\src\components\Map.vue
 -->
 <template>
@@ -31,6 +31,8 @@ defineProps(['map']);
 
 <style lang='scss'>
 .game-box {
+  background: #000;
+  opacity: 0.85;
   border: 1px solid #fff;
   .row {
     display: flex;

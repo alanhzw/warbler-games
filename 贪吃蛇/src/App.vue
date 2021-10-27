@@ -2,33 +2,45 @@
  * @Author: 一尾流莺
  * @Description:根节点
  * @Date: 2021-10-19 16:51:48
- * @LastEditTime: 2021-10-26 19:32:56
+ * @LastEditTime: 2021-10-27 11:11:58
  * @FilePath: \warbler-games\贪吃蛇\src\App.vue
 -->
 <template>
   <div class='app-content'>
-    <Map :map='map'></Map>
+    <Map :map='state.map'></Map>
+    <Controller :is-live='isLive'
+                @start='start'
+                @replay='replay'></Controller>
   </div>
 </template>
 
 <script lang='ts' setup>
 import { startGame, replayGame } from './game';
 import Map from '@/components/Map.vue';
+import Controller from './components/Controller.vue';
 import { initGame } from '@/game';
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
+import { StateType } from './types';
 
+// 地图
+const state = reactive<StateType>({
+  map: [],
+});
+
+//
+const isLive = ref(false);
+
+// 开始游戏
 const start = () => {
   startGame();
 };
+// 再来一局
 const replay = () => {
   replayGame();
 };
 
-// 地图
-const map = reactive([]);
 // 初始化游戏
-initGame(map);
-start();
+initGame(state.map, isLive);
 </script>
 
 <style lang='scss'>
@@ -37,6 +49,7 @@ body {
   background: #000;
   padding: 0;
   overflow: hidden;
+  background: url('./assets/background.jpg');
 }
 body {
 }
