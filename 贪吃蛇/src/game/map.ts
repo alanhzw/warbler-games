@@ -2,20 +2,20 @@
  * @Author: 一尾流莺
  * @Description:地图
  * @Date: 2021-10-19 17:10:53
- * @LastEditTime: 2021-10-27 11:50:31
+ * @LastEditTime: 2021-10-27 16:19:12
  * @FilePath: \warbler-games\贪吃蛇\src\game\map.ts
  */
 
 import type { Map } from '../types/index';
 
-const width = document.documentElement.clientWidth - 20;
-const height = document.documentElement.clientHeight - 40;
+const clientWidth = document.documentElement.clientWidth - 20;
+const clientHeight = document.documentElement.clientHeight - 40;
 
 // 行数
-export const gameRow = width > 700 ? Math.floor(height / 54) : Math.floor(height / 34);
+export const gameRow = clientWidth > 700 ? Math.floor(clientHeight / 54) : Math.floor(clientHeight / 34);
 
 // 列数
-export const gameCol = width > 700 ? Math.floor(width / 54) : Math.floor(width / 34);
+export const gameCol = clientWidth > 700 ? Math.floor(clientWidth / 54) : Math.floor(clientWidth / 34);
 
 // 初始化地图  现在所有的位置type都是0
 export function initMap(map: Map) {

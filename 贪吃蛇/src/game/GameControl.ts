@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:游戏控制类
  * @Date: 2021-10-19 17:14:43
- * @LastEditTime: 2021-10-27 16:01:45
+ * @LastEditTime: 2021-10-27 16:26:34
  * @FilePath: \warbler-games\贪吃蛇\src\game\GameControl.ts
  */
 
@@ -74,34 +74,49 @@ export class GameControl {
   }
   // 移动端修改移动方向
   changeMoveDirection(direction: string) {
-    switch (this._direction) {
-      case 'ArrowUp':
-      case 'Up':
-        if (direction === 'Down' || direction === 'Up') {
+    switch (direction) {
+      case 'A':
+        if (this._direction === 'Down' || this._direction === 'Up') {
+          this._direction = 'Left';
+          return;
+        }
+        if (this._direction === 'Left' || this._direction === 'Right') {
+          this._direction = 'Up';
           return;
         }
         break;
-      case 'ArrowDown':
-      case 'Down':
-        if (direction === 'Down' || direction === 'Up') {
+      case 'B':
+        if (this._direction === 'Down' || this._direction === 'Up') {
+          this._direction = 'Right';
+          return;
+        }
+        if (this._direction === 'Left' || this._direction === 'Right') {
+          this._direction = 'Up';
           return;
         }
         break;
-      case 'ArrowLeft':
-      case 'Left':
-        if (direction === 'Left' || direction === 'Right') {
+      case 'C':
+        if (this._direction === 'Down' || this._direction === 'Up') {
+          this._direction = 'Left';
+          return;
+        }
+        if (this._direction === 'Left' || this._direction === 'Right') {
+          this._direction = 'Down';
           return;
         }
         break;
-      case 'ArrowRight':
-      case 'Right':
-        if (direction === 'Left' || direction === 'Right') {
+      case 'D':
+        if (this._direction === 'Down' || this._direction === 'Up') {
+          this._direction = 'Right';
+          return;
+        }
+        if (this._direction === 'Left' || this._direction === 'Right') {
+          this._direction = 'Down';
           return;
         }
         break;
       default:
         break;
     }
-    this._direction = direction;
   }
 }

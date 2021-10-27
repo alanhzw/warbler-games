@@ -2,57 +2,33 @@
  * @Author: 一尾流莺
  * @Description:移动端屏幕触摸事件
  * @Date: 2021-10-27 15:04:47
- * @LastEditTime: 2021-10-27 15:54:12
+ * @LastEditTime: 2021-10-27 16:28:14
  * @FilePath: \warbler-games\贪吃蛇\src\utils\touch.ts
  */
 
-let initX = 0;
-let initY = 0;
-let distanceX = 0;
-let distanceY = 0;
+const clientWidth = document.documentElement.clientWidth / 2;
+const clientHeight = document.documentElement.clientHeight / 2;
 
-// 开始触摸
-export function touchstart(event: TouchEvent) {
+// 开始触摸  把屏幕分为四个区域 A-左上 B-右上 C-左下 D-右下
+export function touchstart(event: TouchEvent, change: Function) {
   // 只监听单指划动，多指划动不作响应
   if (event.targetTouches.length > 1) {
     return;
   }
-  // 获得触摸起始点坐标
-  initX = event.targetTouches[0].pageX;
-  initY = event.targetTouches[0].pageY;
-}
-// 触摸过程
-export function touchmove(event: TouchEvent) {
-  // 只监听单指划动，多指划动不作响应
-  if (event.targetTouches.length > 1) {
-    return;
+  // A区
+  if (event.targetTouches[0].pageX <= clientWidth && event.targetTouches[0].pageY <= clientHeight) {
+    change('A');
   }
-  distanceX = event.targetTouches[0].pageX - initX;
-  distanceY = event.targetTouches[0].pageY - initY;
-}
-// 结束触摸
-export function touchend(event: TouchEvent, fn: Function) {
-  // 只监听单指划动，多指划动不作响应
-  if (event.targetTouches.length > 1) {
-    return;
+  // B区
+  if (event.targetTouches[0].pageX > clientWidth && event.targetTouches[0].pageY <= clientHeight) {
+    change('B');
   }
-  console.log('🚀🚀~ distanceX:', distanceX);
-
-  console.log('🚀🚀~ distanceY:', distanceY);
-  if (distanceX > 20) {
-    fn('Right');
-    return;
+  // C区
+  if (event.targetTouches[0].pageX <= clientWidth && event.targetTouches[0].pageY > clientHeight) {
+    change('C');
   }
-  if (distanceX < -20) {
-    fn('Left');
-    return;
-  }
-  if (distanceY > 20) {
-    fn('Down');
-    return;
-  }
-  if (distanceY < -20) {
-    fn('Up');
-    return;
+  // D区
+  if (event.targetTouches[0].pageX > clientWidth && event.targetTouches[0].pageY > clientHeight) {
+    change('D');
   }
 }

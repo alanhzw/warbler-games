@@ -2,14 +2,12 @@
  * @Author: 一尾流莺
  * @Description:根节点
  * @Date: 2021-10-19 16:51:48
- * @LastEditTime: 2021-10-27 15:20:12
+ * @LastEditTime: 2021-10-27 16:22:30
  * @FilePath: \warbler-games\贪吃蛇\src\App.vue
 -->
 <template>
   <div class='app-content'
-       @touchstart="touchstart"
-       @touchmove="touchmove"
-       @touchend="(e)=>touchend(e,change)">
+       @touchstart="(e)=>touchstart(e,change)">
     <Map :map='state.map'></Map>
     <Controller :is-live='isLive'
                 @start='start'
@@ -24,7 +22,7 @@ import Controller from './components/Controller.vue';
 import { initGame } from '@/game';
 import { reactive, ref } from 'vue';
 import { StateType } from './types';
-import { touchstart, touchmove, touchend } from './utils/touch';
+import { touchstart } from './utils/touch';
 
 // 地图
 const state = reactive<StateType>({
