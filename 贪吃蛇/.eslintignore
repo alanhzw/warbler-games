@@ -13,3 +13,6 @@ index.html
 .gitignore
 .eslintignore
 README.md
+/贪吃蛇/package.json
+./package.json
+../package.json

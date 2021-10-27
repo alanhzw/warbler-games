@@ -2,20 +2,15 @@
  * @Author: 一尾流莺
  * @Description:vite配置文件
  * @Date: 2021-10-14 14:47:09
- * @LastEditTime: 2021-10-14 15:06:42
- * @FilePath: \elsfk3\vite.config.ts
- */
-/*
- * @Description:脚手架配置文件
- * @Date: 2021-04-15 11:38:49
- * @LastEditTime: 2021-04-26 21:30:03
- * @FilePath: \warbler-homepage\vite.config.ts
+ * @LastEditTime: 2021-10-27 14:34:13
+ * @FilePath: \warbler-games\贪吃蛇\vite.config.ts
  */
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
 
 export default defineConfig({
+  base: './',
   // 定义别名
   alias: {
     '@': path.resolve(__dirname, 'src'),
