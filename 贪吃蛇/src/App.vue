@@ -2,15 +2,14 @@
  * @Author: 一尾流莺
  * @Description:根节点
  * @Date: 2021-10-19 16:51:48
- * @LastEditTime: 2021-10-27 14:48:36
+ * @LastEditTime: 2021-10-27 15:20:12
  * @FilePath: \warbler-games\贪吃蛇\src\App.vue
 -->
 <template>
   <div class='app-content'
-       @swipeup="changeMoveDirection('up')"
-       @swiperight="changeMoveDirection('right')"
-       @swipedown="changeMoveDirection('down')"
-       @swipeleft="changeMoveDirection('left')">
+       @touchstart="touchstart"
+       @touchmove="touchmove"
+       @touchend="(e)=>touchend(e,change)">
     <Map :map='state.map'></Map>
     <Controller :is-live='isLive'
                 @start='start'
@@ -25,6 +24,7 @@ import Controller from './components/Controller.vue';
 import { initGame } from '@/game';
 import { reactive, ref } from 'vue';
 import { StateType } from './types';
+import { touchstart, touchmove, touchend } from './utils/touch';
 
 // 地图
 const state = reactive<StateType>({
@@ -43,6 +43,11 @@ const replay = () => {
   replayGame();
 };
 
+// 移动端修改方向
+const change = (direction: string) => {
+  changeMoveDirection(direction);
+};
+
 // 初始化游戏
 initGame(state.map, isLive);
 </script>
@@ -53,9 +58,12 @@ body {
   background: #000;
   padding: 0;
   overflow: hidden;
-  background: url('./assets/background.jpg') 100% space;
+  background: url('./assets/background-b.jpg');
+  background-size: cover;
+  background-repeat: space;
   @media screen and (max-width: 750px) {
-    background: url('./assets/background-c.jpg') 100% space;
+    background: url('./assets/background-c.jpg');
+    background-size: contain;
   }
 }
 body {

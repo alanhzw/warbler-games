@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:游戏控制类
  * @Date: 2021-10-19 17:14:43
- * @LastEditTime: 2021-10-27 12:04:51
+ * @LastEditTime: 2021-10-27 15:25:40
  * @FilePath: \warbler-games\贪吃蛇\src\game\GameControl.ts
  */
 
@@ -74,6 +74,7 @@ export class GameControl {
   }
   // 移动端修改移动方向
   changeMoveDirection(direction: string) {
+    console.log('🚀🚀~ direction:', direction);
     this._direction = direction;
   }
 }
