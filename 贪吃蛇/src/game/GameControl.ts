@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:游戏控制类
  * @Date: 2021-10-19 17:14:43
- * @LastEditTime: 2021-10-27 15:25:40
+ * @LastEditTime: 2021-10-27 16:01:45
  * @FilePath: \warbler-games\贪吃蛇\src\game\GameControl.ts
  */
 
@@ -74,7 +74,34 @@ export class GameControl {
   }
   // 移动端修改移动方向
   changeMoveDirection(direction: string) {
-    console.log('🚀🚀~ direction:', direction);
+    switch (this._direction) {
+      case 'ArrowUp':
+      case 'Up':
+        if (direction === 'Down' || direction === 'Up') {
+          return;
+        }
+        break;
+      case 'ArrowDown':
+      case 'Down':
+        if (direction === 'Down' || direction === 'Up') {
+          return;
+        }
+        break;
+      case 'ArrowLeft':
+      case 'Left':
+        if (direction === 'Left' || direction === 'Right') {
+          return;
+        }
+        break;
+      case 'ArrowRight':
+      case 'Right':
+        if (direction === 'Left' || direction === 'Right') {
+          return;
+        }
+        break;
+      default:
+        break;
+    }
     this._direction = direction;
   }
 }

@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:移动端屏幕触摸事件
  * @Date: 2021-10-27 15:04:47
- * @LastEditTime: 2021-10-27 15:28:42
+ * @LastEditTime: 2021-10-27 15:54:12
  * @FilePath: \warbler-games\贪吃蛇\src\utils\touch.ts
  */
 
@@ -36,19 +36,22 @@ export function touchend(event: TouchEvent, fn: Function) {
   if (event.targetTouches.length > 1) {
     return;
   }
-  if (distanceX > 100) {
+  console.log('🚀🚀~ distanceX:', distanceX);
+
+  console.log('🚀🚀~ distanceY:', distanceY);
+  if (distanceX > 20) {
     fn('Right');
     return;
   }
-  if (distanceX < -100) {
+  if (distanceX < -20) {
     fn('Left');
     return;
   }
-  if (distanceY > 100) {
+  if (distanceY > 20) {
     fn('Down');
     return;
   }
-  if (distanceY < -100) {
+  if (distanceY < -20) {
     fn('Up');
     return;
   }
