@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:
  * @Date: 2021-10-27 10:38:07
- * @LastEditTime: 2021-10-27 11:07:19
+ * @LastEditTime: 2021-10-27 11:49:31
  * @FilePath: \warbler-games\贪吃蛇\src\components\Controller.vue
 -->
 <template>
@@ -10,9 +10,23 @@
   <transition name="base">
     <!-- 遮罩层 -->
     <div class="controller-box"
-         @click='emit("start")'
-         v-if="!isLive">
-
+         v-if="isLive !== 2">
+      <!-- 游戏未开始 -->
+      <div v-if="isLive === 1"
+           class="show-btns"
+           @click='emit("start")'>
+        <img src="../assets/snake.png"
+             class="limit">
+        <img src="../assets/start.png">
+      </div>
+      <!-- 游戏结束,再来一局 -->
+      <div v-if="isLive === 3"
+           class="show-btns"
+           @click='emit("replay")'>
+        <img src="../assets/gameover.png"
+             class="limit">
+        <img src="../assets/replay.png">
+      </div>
     </div>
   </transition>
 </template>
@@ -20,12 +34,12 @@
 <script lang='ts' setup>
 import { defineProps, defineEmits } from 'vue';
 
-const emit = defineEmits(['start']);
+const emit = defineEmits(['start', 'replay']);
 
 defineProps({
   isLive: {
-    type: Boolean,
-    default: false,
+    type: Number,
+    default: 1,
   },
 });
 </script>
@@ -43,6 +57,16 @@ defineProps({
   display: flex;
   align-items: center;
   justify-content: center;
+  .show-btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .limit {
+      width: 300px;
+    }
+  }
 }
 //淡入淡出
 .base-enter-active,

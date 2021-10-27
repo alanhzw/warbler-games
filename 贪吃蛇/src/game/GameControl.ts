@@ -2,16 +2,15 @@
  * @Author: 一尾流莺
  * @Description:游戏控制类
  * @Date: 2021-10-19 17:14:43
- * @LastEditTime: 2021-10-27 11:17:44
+ * @LastEditTime: 2021-10-27 11:57:37
  * @FilePath: \warbler-games\贪吃蛇\src\game\GameControl.ts
  */
 
-import { Map } from '@/types';
+import { IsLive, Map } from '@/types';
 import { addTicker, intervalTimer, stopTicker } from '@/utils';
 import { Food } from './Food';
 import { render, reset } from './render';
 import { Snake } from './Snake';
-import { Ref } from 'vue';
 
 export class GameControl {
   // 蛇
@@ -22,9 +21,10 @@ export class GameControl {
   private _direction: string;
   // 地图
   private _map: Map;
-  private _isLive: Ref<boolean>;
+  // 游戏状态
+  private _isLive: IsLive;
 
-  constructor(map: Map, isLive: Ref<boolean>) {
+  constructor(map: Map, isLive: IsLive) {
     this._map = map;
     this._direction = 'Right';
     this._snake = new Snake();
@@ -37,8 +37,8 @@ export class GameControl {
     document.addEventListener('keydown', this.keydownHandler.bind(this));
     // 添加到帧循环列表
     addTicker(this.handlerTicker.bind(this));
-    // 标记游戏开始
-    this._isLive.value = true;
+    // 标记游戏状态为开始
+    this._isLive.value = 2;
   }
   // 创建一个键盘按下的响应函数
   keydownHandler(event: KeyboardEvent) {
@@ -54,7 +54,9 @@ export class GameControl {
       try {
         this._snake.move(this._direction, this._food);
       } catch (error: any) {
-        this._isLive.value = false;
+        // 标记游戏状态为结束
+        this._isLive.value = 3;
+        // 停止循环
         stopTicker();
       }
     }
@@ -63,10 +65,11 @@ export class GameControl {
   // 重新开始游戏
   replay() {
     reset(this._map);
+    this._direction = 'Right';
     this._snake = new Snake();
     this._food = new Food();
+    this._isLive.value = 2;
     stopTicker();
     addTicker(this.handlerTicker.bind(this));
-    this._isLive.value = true;
   }
 }

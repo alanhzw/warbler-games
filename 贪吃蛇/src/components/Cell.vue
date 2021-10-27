@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:每一个小格子
  * @Date: 2021-10-14 15:38:34
- * @LastEditTime: 2021-10-26 19:32:16
+ * @LastEditTime: 2021-10-27 11:51:20
  * @FilePath: \warbler-games\贪吃蛇\src\components\Cell.vue
 -->
 <template>
@@ -27,8 +27,8 @@ const classes = computed(() => {
 
 <style lang='scss'>
 .cell-box {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   @media screen and (max-width: 750px) {
     width: 30px;
     height: 30px;

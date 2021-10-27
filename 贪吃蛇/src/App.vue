@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:根节点
  * @Date: 2021-10-19 16:51:48
- * @LastEditTime: 2021-10-27 11:11:58
+ * @LastEditTime: 2021-10-27 11:24:01
  * @FilePath: \warbler-games\贪吃蛇\src\App.vue
 -->
 <template>
@@ -27,8 +27,8 @@ const state = reactive<StateType>({
   map: [],
 });
 
-//
-const isLive = ref(false);
+// 游戏状态 1未开始 2进行中 3已结束
+const isLive = ref(1);
 
 // 开始游戏
 const start = () => {
