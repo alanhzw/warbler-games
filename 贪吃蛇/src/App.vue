@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:根节点
  * @Date: 2021-10-19 16:51:48
- * @LastEditTime: 2021-10-27 18:36:43
+ * @LastEditTime: 2021-10-28 14:49:41
  * @FilePath: \warbler-games\贪吃蛇\src\App.vue
 -->
 <template>
@@ -13,6 +13,15 @@
                 @replay='replay'></Controller>
     <KeyBoard :is-live='isLive'
               @changeDirection='change'></KeyBoard>
+    <audio controls
+           ref="audio"
+           class="audio"
+           loop
+           autoplay>
+      <source src="https://img.tukuppt.com/newpreview_music/09/01/69/5c8a0553e18db46234.mp3"
+              type="audio/mpeg" />
+    </audio>
+
   </div>
 </template>
 
@@ -25,6 +34,8 @@ import { initGame } from '@/game';
 import { reactive, ref } from 'vue';
 import { StateType } from './types';
 
+const audio = ref(null);
+
 // 地图
 const state = reactive<StateType>({
   map: [],
@@ -36,6 +47,8 @@ const isLive = ref(1);
 // 开始游戏
 const start = () => {
   startGame();
+  // @ts-ignore
+  audio.value.play();
 };
 // 再来一局
 const replay = () => {
@@ -79,5 +92,10 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+}
+.audio {
+  position: absolute;
+  z-index: -1;
+  visibility: hidden;
 }
 </style>

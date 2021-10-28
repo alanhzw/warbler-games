@@ -1,8 +1,8 @@
 /*
  * @Description:代码规范文件
  * @Date: 2021-03-29 19:03:25
- * @LastEditTime: 2021-10-14 19:23:57
- * @FilePath: \elsfk3\.eslintrc.js
+ * @LastEditTime: 2021-10-27 19:18:10
+ * @FilePath: \warbler-games\贪吃蛇\.eslintrc.js
  */
 module.exports = {
   root: true,
@@ -49,6 +49,7 @@ module.exports = {
     'no-nonoctal-decimal-escape': 0,
     'no-unsafe-optional-chaining': 0,
     '@typescript-eslint/no-explicit-any': 0,
-    '@typescript-eslint/ban-types': 0
+    '@typescript-eslint/ban-types': 0,
+    '@typescript-eslint/ban-ts-comment': 0
   },
 };

@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:
  * @Date: 2021-10-27 10:38:07
- * @LastEditTime: 2021-10-27 17:10:38
+ * @LastEditTime: 2021-10-28 14:49:46
  * @FilePath: \warbler-games\贪吃蛇\src\components\Controller.vue
 -->
 <template>
@@ -21,7 +21,6 @@
         <div class="options-tips">
           <p>手机玩家请点击屏幕进行操作;</p>
           <p>电脑玩家请通过按键 ↑ ↓ ← → 进行操作;</p>
-          <p>注: 黑框外点击无效!!!</p>
         </div>
       </div>
       <!-- 游戏结束,再来一局 -->
