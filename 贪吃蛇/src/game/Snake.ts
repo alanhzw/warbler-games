@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:蛇类 -1 食物 1 蛇身体 2 蛇头
  * @Date: 2021-10-19 17:14:52
- * @LastEditTime: 2021-10-28 18:42:49
+ * @LastEditTime: 2021-10-28 19:05:19
  * @FilePath: \warbler-games\贪吃蛇\src\game\Snake.ts
  */
 
@@ -17,7 +17,6 @@ export class Snake {
   direction: string;
   constructor() {
     this.direction = 'Right';
-
     this.head = {
       x: 1,
       y: 0,
@@ -47,22 +46,22 @@ export class Snake {
     }
   }
   // 控制蛇移动
-  move(direction: string, food: Food) {
+  move(food: Food) {
     // 判断是否游戏结束
-    if (hitFence(this.head, direction) || hitSelf(this.head, this.bodies)) {
+    if (hitFence(this.head, this.direction) || hitSelf(this.head, this.bodies)) {
       throw new Error('游戏结束');
     }
     const headX = this.head.x;
     const headY = this.head.y;
     const bodyX = this.bodies[this.bodies.length - 1].x;
     const bodyY = this.bodies[this.bodies.length - 1].y;
-    switch (direction) {
+    switch (this.direction) {
       case 'ArrowUp':
       case 'Up':
         // 向上移动 需要检测按键是否相反方向
         if (headY - 1 === bodyY && headX === bodyX) {
           moveDown(this.head, this.bodies);
-          direction = 'Down';
+          this.direction = 'Down';
           return;
         }
         moveUp(this.head, this.bodies);
@@ -72,7 +71,7 @@ export class Snake {
         // 向下移动 需要检测按键是否相反方向
         if (headY + 1 === bodyY && headX === bodyX) {
           moveUp(this.head, this.bodies);
-          direction = 'Up';
+          this.direction = 'Up';
           return;
         }
         moveDown(this.head, this.bodies);
@@ -82,7 +81,7 @@ export class Snake {
         // 向左移动 需要检测按键是否相反方向
         if (headY === bodyY && headX - 1 === bodyX) {
           moveRight(this.head, this.bodies);
-          direction = 'Right';
+          this.direction = 'Right';
           return;
         }
         moveLeft(this.head, this.bodies);
@@ -92,7 +91,7 @@ export class Snake {
         // 向右移动 需要检测按键是否相反方向
         if (headY === bodyY && headX + 1 === bodyX) {
           moveLeft(this.head, this.bodies);
-          direction = 'Left';
+          this.direction = 'Left';
           return;
         }
         moveRight(this.head, this.bodies);

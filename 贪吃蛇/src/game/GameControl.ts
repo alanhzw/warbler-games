@@ -49,7 +49,7 @@ export class GameControl {
   handlerTicker(n: number) {
     if (this._isMove(n)) {
       try {
-        this.snake.move(this.snake.direction, this._food);
+        this.snake.move(this._food);
       } catch (error: any) {
         // 标记游戏状态为结束
         this._isLive.value = 3;
