@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:蛇类 -1 食物 1 蛇身体 2 蛇头
  * @Date: 2021-10-19 17:14:52
- * @LastEditTime: 2021-10-27 11:17:53
+ * @LastEditTime: 2021-10-28 18:42:49
  * @FilePath: \warbler-games\贪吃蛇\src\game\Snake.ts
  */
 
@@ -13,7 +13,11 @@ import { hitFence, hitSelf } from './hit';
 export class Snake {
   bodies: SnakeBodies;
   head: SnakeHead;
+  // 创建一个属性来存储蛇的移动方向（也就是按键的方向）
+  direction: string;
   constructor() {
+    this.direction = 'Right';
+
     this.head = {
       x: 1,
       y: 0,
@@ -98,6 +102,44 @@ export class Snake {
     }
     // 检查蛇是否吃到食物
     this.checkEat(food);
+  }
+  // 移动端修改移动方向
+  changeMoveDirection(clickX, clickY) {
+    // 根据点击的位置和蛇头的相对位置,进行方向的改变
+    if (clickY < this.head.x && this.direction !== 'Left' && this.direction !== 'Right') {
+      this.direction = 'Left';
+      return;
+    }
+    if (clickY > this.head.x && this.direction !== 'Left' && this.direction !== 'Right') {
+      this.direction = 'Right';
+      return;
+    }
+    if (clickX < this.head.y && this.direction !== 'Up' && this.direction !== 'Down') {
+      this.direction = 'Up';
+      return;
+    }
+    if (clickX > this.head.y && this.direction !== 'Up' && this.direction !== 'Down') {
+      this.direction = 'Down';
+      return;
+    }
+  }
+  changeDirection(direction: string) {
+    if (direction === 'Left' && this.direction !== 'Left' && this.direction !== 'Right') {
+      this.direction = 'Left';
+      return;
+    }
+    if (direction === 'Right' && this.direction !== 'Left' && this.direction !== 'Right') {
+      this.direction = 'Right';
+      return;
+    }
+    if (direction === 'Up' && this.direction !== 'Up' && this.direction !== 'Down') {
+      this.direction = 'Up';
+      return;
+    }
+    if (direction === 'Down' && this.direction !== 'Up' && this.direction !== 'Down') {
+      this.direction = 'Down';
+      return;
+    }
   }
 }
 

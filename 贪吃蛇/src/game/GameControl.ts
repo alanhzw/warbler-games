@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:游戏控制类
  * @Date: 2021-10-19 17:14:43
- * @LastEditTime: 2021-10-27 18:37:16
+ * @LastEditTime: 2021-10-28 18:48:33
  * @FilePath: \warbler-games\贪吃蛇\src\game\GameControl.ts
  */
 
@@ -14,11 +14,9 @@ import { Snake } from './Snake';
 
 export class GameControl {
   // 蛇
-  private _snake: Snake;
+  snake: Snake;
   // 食物
   private _food: Food;
-  // 创建一个属性来存储蛇的移动方向（也就是按键的方向）
-  private _direction: string;
   // 地图
   private _map: Map;
   // 游戏状态
@@ -26,8 +24,7 @@ export class GameControl {
 
   constructor(map: Map, isLive: IsLive) {
     this._map = map;
-    this._direction = 'Right';
-    this._snake = new Snake();
+    this.snake = new Snake();
     this._food = new Food();
     this._isLive = isLive;
   }
@@ -42,7 +39,7 @@ export class GameControl {
   }
   // 创建一个键盘按下的响应函数
   keydownHandler(event: KeyboardEvent) {
-    this._direction = event.key;
+    this.snake.direction = event.key;
   }
   // 渲染map
   private _timeInterval = 200;
@@ -52,7 +49,7 @@ export class GameControl {
   handlerTicker(n: number) {
     if (this._isMove(n)) {
       try {
-        this._snake.move(this._direction, this._food);
+        this.snake.move(this.snake.direction, this._food);
       } catch (error: any) {
         // 标记游戏状态为结束
         this._isLive.value = 3;
@@ -60,54 +57,16 @@ export class GameControl {
         stopTicker();
       }
     }
-    render(this._map, this._snake, this._food);
+    render(this._map, this.snake, this._food);
   }
   // 重新开始游戏
   replay() {
     reset(this._map);
-    this._direction = 'Right';
-    this._snake = new Snake();
+    this.snake.direction = 'Right';
+    this.snake = new Snake();
     this._food = new Food();
     this._isLive.value = 2;
     stopTicker();
     addTicker(this.handlerTicker.bind(this));
-  }
-  // 移动端修改移动方向
-  changeMoveDirection(clickX, clickY) {
-    // 根据点击的位置和蛇头的相对位置,进行方向的改变
-    if (clickY < this._snake.head.x && this._direction !== 'Left' && this._direction !== 'Right') {
-      this._direction = 'Left';
-      return;
-    }
-    if (clickY > this._snake.head.x && this._direction !== 'Left' && this._direction !== 'Right') {
-      this._direction = 'Right';
-      return;
-    }
-    if (clickX < this._snake.head.y && this._direction !== 'Up' && this._direction !== 'Down') {
-      this._direction = 'Up';
-      return;
-    }
-    if (clickX > this._snake.head.y && this._direction !== 'Up' && this._direction !== 'Down') {
-      this._direction = 'Down';
-      return;
-    }
-  }
-  changeDirection(direction: string) {
-    if (direction === 'Left' && this._direction !== 'Left' && this._direction !== 'Right') {
-      this._direction = 'Left';
-      return;
-    }
-    if (direction === 'Right' && this._direction !== 'Left' && this._direction !== 'Right') {
-      this._direction = 'Right';
-      return;
-    }
-    if (direction === 'Up' && this._direction !== 'Up' && this._direction !== 'Down') {
-      this._direction = 'Up';
-      return;
-    }
-    if (direction === 'Down' && this._direction !== 'Up' && this._direction !== 'Down') {
-      this._direction = 'Down';
-      return;
-    }
   }
 }
