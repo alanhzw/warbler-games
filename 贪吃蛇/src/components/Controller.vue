@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:
  * @Date: 2021-10-27 10:38:07
- * @LastEditTime: 2021-10-28 14:49:46
+ * @LastEditTime: 2021-10-28 16:37:34
  * @FilePath: \warbler-games\贪吃蛇\src\components\Controller.vue
 -->
 <template>
@@ -75,6 +75,9 @@ defineProps({
   .options-tips {
     color: #f0d095;
     font-size: 12px;
+    p {
+      padding: 5px 0;
+    }
   }
 }
 //淡入淡出

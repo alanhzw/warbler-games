@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:
  * @Date: 2021-10-27 18:13:32
- * @LastEditTime: 2021-10-27 18:37:39
+ * @LastEditTime: 2021-10-28 16:37:04
  * @FilePath: \warbler-games\贪吃蛇\src\components\KeyBoard.vue
 -->
 <template>
@@ -33,40 +33,40 @@ defineProps({
 
 <style lang='scss'>
 .key-board-box {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   background: url('../assets/keyboard.png');
   background-size: 100%;
   position: absolute;
   bottom: 20px;
   opacity: 0.1;
   .up {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     position: absolute;
-    left: 35px;
-    top: 20px;
+    left: 80px;
+    top: 22px;
   }
   .down {
     position: absolute;
-    width: 30px;
-    height: 30px;
-    left: 35px;
-    top: 52px;
+    width: 40px;
+    height: 40px;
+    left: 80px;
+    bottom: 22px;
   }
   .left {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     left: 0px;
-    top: 52px;
+    top: 80px;
   }
   .right {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     right: 0px;
-    top: 52px;
+    top: 80px;
   }
 }
 </style>
